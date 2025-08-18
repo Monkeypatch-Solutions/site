@@ -2,13 +2,47 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="/favicon.png" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/main.css">
+
     <title>Monkeypatch Solutions</title>
   </head>
 
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <main>
+      <header>
+        <button name="home">
+          <img alt="Monkeypatch Solutions" src="/images/logo_01_full.png" />
+        </button>
+        <nav>
+          <button name="accessibility">Accessibility Services</button>
+          <button name="websites">Bespoke Websites</button>
+          <button name="about">About & Contact</button>
+        </nav>
+      </header>
+
+      <section id="home">
+        <h1>
+          <img alt="Monkeypatch Solutions" src="/images/logo_01_full.png" />
+        </h1>
+      </section>
+
+      <section id="accessibility">
+        <h2>Accessibility</h2>
+      </section>
+    
+      <section id="websites">
+        <h2>Websites</h2>
+      </section>
+    
+      <section id="about">
+        <h2>About</h2>
+      </section>
+
+      <script src="/src/main.js" type="module"></script>
+    </main>
   </body>
 </html>
