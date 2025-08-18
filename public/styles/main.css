@@ -46,7 +46,8 @@ header {
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  background-color: #f0e9db;
+  background-color: green;
+  /* background-color: #f0e9db; */
   pointer-events: none;
   z-index: 2;
   opacity: 0;
@@ -81,22 +82,22 @@ h1 img {
 
 nav {
   position: absolute;
-  bottom: 2rem;
+  top: 0;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  font-size: 1.4rem;
   text-align: center;
   line-height: 1.2;
   background-color: #f0e9db;
-  border-bottom: 0.1rem solid #1b2f3f;
-  padding: 0.8rem;
-  transition: bottom 0.5s;
+  padding-bottom: 0.8rem;
+  transition: top 0.5s;
   overflow: hidden;
   z-index: 1;
 }
 nav.show {
-  bottom: -5.5rem;
+  top: 100%;
 }
 
 #nav-btn {
@@ -120,7 +121,49 @@ nav.show {
   color: #069;
   text-decoration: underline;
   cursor: pointer;
-  font-size: 1.6rem;
+}
+
+.lines {
+  display: block;
+  height: 26px;
+  width: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.lines .line {
+  display: block;
+  height: 4px;
+  width: 100%;
+  border-radius: 10px;
+  background: #1b2f3f;
+}
+
+.lines .line1 {
+  transform-origin: left;
+  transition: transform 0.4s ease-in-out;
+}
+
+.lines .line2 {
+  transition: transform 0.2s ease-in-out;
+}
+
+.lines .line3 {
+  transform-origin: left;
+  transition: transform 0.4s ease-in-out;
+}
+
+.lines.show .line1 {
+  transform: rotate(45deg);
+}
+
+.lines.show .line2 {
+  transform: scaleY(0);
+}
+
+.lines.show .line3 {
+  transform: rotate(-45deg);
 }
 
 @media (min-width: 769px) {
@@ -138,6 +181,7 @@ nav.show {
     line-height: 1;
     border-bottom: none;
     gap: 2rem;
+    font-size: 1.6rem;
     transition: none;
     overflow: visible;
     z-index: 4;

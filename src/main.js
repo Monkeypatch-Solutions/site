@@ -51,10 +51,13 @@ if (main) {
 
   // Toggle mobile nav
   const nav = main.getElementsByTagName('nav')[0];
-  document.getElementById('nav-btn').addEventListener('click', () => {
-    if (nav.classList.contains('show')) {
+  const navBtn = document.getElementById('nav-btn');
+  navBtn.addEventListener('click', (e) => {
+    if (navBtn.classList.contains('show')) {
+      navBtn.classList.remove('show');
       nav.classList.remove('show');
     } else {
+      navBtn.classList.add('show');
       nav.classList.add('show');
     }
   }, false);
@@ -64,6 +67,7 @@ if (main) {
     button.addEventListener('click', () => {
       if (button.name) {
         document.getElementById(button.name).scrollIntoView({ behavior: 'smooth' });
+        navBtn.classList.remove('show');
         nav.classList.remove('show');
       }
     });
