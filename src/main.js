@@ -49,10 +49,23 @@ if (main) {
     lastScrollTop = main.scrollTop <= 0 ? 0 : main.scrollTop;
   }, { passive: true });
 
+  // Toggle mobile nav
+  const nav = main.getElementsByTagName('nav')[0];
+  document.getElementById('nav-btn').addEventListener('click', () => {
+    if (nav.classList.contains('show')) {
+      nav.classList.remove('show');
+    } else {
+      nav.classList.add('show');
+    }
+  }, false);
+
   // Add click events to nav bar buttons
   [...main.getElementsByTagName('button')].forEach((button) => {
     button.addEventListener('click', () => {
-      document.getElementById(button.name).scrollIntoView({ behavior: 'smooth' });
+      if (button.name) {
+        document.getElementById(button.name).scrollIntoView({ behavior: 'smooth' });
+        nav.classList.remove('show');
+      }
     });
   });
 }

@@ -40,10 +40,9 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  height: 10rem;
   width: 100vw;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 2rem;
@@ -51,6 +50,7 @@ header {
   pointer-events: none;
   z-index: 2;
   opacity: 0;
+  padding: 2rem 0 1rem 0;
 }
 
 header img {
@@ -70,13 +70,80 @@ header.quick {
   transition: opacity 0.2s;
 }
 
-nav {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
+header > button {
+  z-index: 4;
 }
 
 h1 img {
   width: 80vw;
   max-width: 90rem;
+}
+
+nav {
+  position: absolute;
+  bottom: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  line-height: 1.2;
+  background-color: #f0e9db;
+  border-bottom: 0.1rem solid #1b2f3f;
+  padding: 0.8rem;
+  transition: bottom 0.5s;
+  overflow: hidden;
+  z-index: 1;
+}
+nav.show {
+  bottom: -5.5rem;
+}
+
+#nav-btn {
+  user-select: none;
+}
+
+#smokescreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #f0e9db;
+  z-index: 3;
+}
+
+.link-btn {
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 1.6rem;
+}
+
+@media (min-width: 769px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  nav {
+    position: initial;
+    display: flex;
+    flex-direction: row;
+    line-height: 1;
+    border-bottom: none;
+    gap: 2rem;
+    transition: none;
+    overflow: visible;
+    z-index: 4;
+  }
+
+  #nav-btn {
+    display: none;
+  }
 }

@@ -55,11 +55,9 @@ table {
 }
 
 button {
-  background: none !important;
-  border: none;
-  padding: 0 !important;
-  color: #069;
-  text-decoration: underline;
+  all: unset;
   cursor: pointer;
-  font-size: 1.6rem;
+}
+button:focus {
+  outline: revert;
 }
