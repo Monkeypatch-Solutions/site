@@ -12,12 +12,14 @@ if (main) {
   main.addEventListener('scroll', () => {
     // Show or hide the header depending on scroll position
     if (main.scrollTop > lastScrollTop) { // Scrolling down
-      if (main.scrollTop >= 10) {
+      if (main.scrollTop >= main.clientHeight - (main.clientHeight / 2)) {
+        document.getElementById('hero').classList.add('scrolled');
         main.getElementsByTagName('header')[0].classList.add('scrolled', 'transition');
         main.getElementsByTagName('header')[0].classList.remove('quick');
       }
     } else if (main.scrollTop < lastScrollTop) { // Scrolling up
-      if (main.scrollTop <= main.clientHeight - 10) {
+      if (main.scrollTop <= main.clientHeight - (main.clientHeight / 2)) {
+        document.getElementById('hero').classList.remove('scrolled');
         main.getElementsByTagName('header')[0].classList.remove('scrolled', 'transition');
         main.getElementsByTagName('header')[0].classList.add('quick');
       }

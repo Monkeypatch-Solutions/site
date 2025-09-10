@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="icon" href="/favicon.png" type="image/svg+xml" />
-    <link rel="stylesheet" href="/styles/reset.css">
-    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/src/styles/reset.css">
+    <link rel="stylesheet" href="/src/styles/main.css">
 
     <title>Monkeypatch Solutions</title>
   </head>
@@ -14,42 +14,44 @@
   <body>
     <main>
       <header>
-        <button name="home" type="button">
-          <img alt="Monkeypatch Solutions" src="/images/logo_01_full.png" />
-        </button>
-        <button class="lines" id="nav-btn" type="button">
-          <span class="line line1"></span>
-          <span class="line line2"></span>
-          <span class="line line3"></span>
-        </button>
+        <div class="smokescreen">
+          <button name="home" type="button">
+            <img alt="Monkeypatch Solutions" src="/images/logo_01_full.png" />
+          </button>
+          <button class="lines" id="nav-btn" type="button">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
+          </button>
+        </div>
+
         <nav>
           <button class="link-btn" name="accessibility" type="button">
             Accessibility Services
           </button>
-          <button class="link-btn" name="websites" type="button">
+          <!-- <button class="link-btn" name="websites" type="button">
             Bespoke Websites
-          </button>
+          </button> -->
           <button class="link-btn" name="about" type="button">
             About & Contact
           </button>
         </nav>
-        <div id="smokescreen"></div>
       </header>
 
       <section id="home">
         <h1>
-          <img alt="Monkeypatch Solutions" src="/images/logo_01_full.png" />
+          <img alt="Monkeypatch Solutions" id="hero" src="/images/logo_01_full.png" />
         </h1>
       </section>
 
       <section id="accessibility">
         <h2>Accessibility</h2>
       </section>
-    
-      <section id="websites">
+
+      <!-- <section id="websites">
         <h2>Websites</h2>
-      </section>
-    
+      </section> -->
+
       <section id="about">
         <h2>About</h2>
       </section>

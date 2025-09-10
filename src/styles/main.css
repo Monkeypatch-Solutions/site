@@ -22,7 +22,7 @@ html, body {
 main {
   height: 100vh;
   width: 100vw;
-  overflow: hidden auto;
+  overflow: hidden scroll;
   scroll-snap-type: y mandatory;
 }
 
@@ -46,8 +46,6 @@ header {
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  background-color: green;
-  /* background-color: #f0e9db; */
   pointer-events: none;
   z-index: 2;
   opacity: 0;
@@ -75,9 +73,17 @@ header > button {
   z-index: 4;
 }
 
+.smokescreen {
+  position: relative;
+  background-color: #f0e9db;
+  z-index: 3;
+}
+
 h1 img {
   width: 80vw;
   max-width: 90rem;
+  opacity: 1;
+  transition: opacity 0.5s;
 }
 
 nav {
@@ -98,6 +104,10 @@ nav {
 }
 nav.show {
   top: 100%;
+}
+
+#hero.scrolled {
+  opacity: 0;
 }
 
 #nav-btn {
