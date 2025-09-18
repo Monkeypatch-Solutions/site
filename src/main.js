@@ -21,10 +21,20 @@ if (main) {
   const navBtn = document.getElementById('nav-btn');
 
   const scrolledDownThePageThreshold = main.clientHeight - (main.clientHeight / 2);
+  
+    const setHide = (element, status) => {
+      if (status) {
+        element.classList.remove('hide');
+        element.hidden = true;
+      } else {
+        element.classList.add('hide');
+        element.hidden = false;
+      }
+    }
 
   const shouldShowNav = () => {
     if (main.scrollTop >= scrolledDownThePageThreshold) {
-      nav.classList.remove('hide');
+      setHide(nav, true);
     }
   }
 
@@ -72,7 +82,7 @@ if (main) {
         scrollBtn.classList.add('scrolled');
         header.classList.add('scrolled', 'transition');
         header.classList.remove('quick');
-        nav.classList.remove('hide');
+        setHide(nav, true);
       }
     } else if (main.scrollTop < lastScrollTop) { // Scrolling up
       if (main.scrollTop <= scrolledDownThePageThreshold) {
@@ -80,7 +90,7 @@ if (main) {
         scrollBtn.classList.remove('scrolled');
         header.classList.remove('scrolled', 'transition');
         header.classList.add('quick');
-        nav.classList.add('hide');
+        setHide(nav, false);
       }
     }
 
