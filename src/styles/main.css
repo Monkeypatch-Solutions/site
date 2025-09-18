@@ -37,6 +37,7 @@ section {
 }
 
 header {
+  box-sizing: border-box;
   position: absolute;
   top: 0;
   left: 0;
@@ -44,12 +45,12 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  gap: 2rem;
+  justify-content: space-between;
+  background-color: #f0e9db;
   pointer-events: none;
   z-index: 2;
   opacity: 0;
-  padding: 2rem 0 1rem 0;
+  padding: 2rem 2rem 1rem 0.5rem;
 }
 
 header img {
@@ -88,7 +89,6 @@ h1 img {
 
 nav {
   position: absolute;
-  top: 0;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -98,12 +98,13 @@ nav {
   line-height: 1.2;
   background-color: #f0e9db;
   padding-bottom: 0.8rem;
-  transition: top 0.5s;
+  transition: top 0.5s, opacity 0.5s;
   overflow: hidden;
   z-index: 1;
 }
-nav.show {
-  top: 100%;
+nav.hide {
+  opacity: 0;
+  transition: opacity 0.2s;
 }
 
 #hero.scrolled {
@@ -120,8 +121,28 @@ nav.show {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: #f0e9db;
   z-index: 3;
+}
+
+#home {
+  position: relative;
+}
+
+@keyframes bounce {
+  0% { margin-bottom: 0rem; }
+  50% { margin-bottom: 2rem; }
+  100% { margin-bottom: 0rem; }
+}
+#scroll-btn {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 4rem;
+  font-weight: 600;
+  color: #696e71;
+  animation: bounce 3s ease 1s infinite;
+  animation-fill-mode: none;
 }
 
 .link-btn {
@@ -182,10 +203,10 @@ nav.show {
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    padding: 2rem 0 1rem 0;
   }
 
   nav {
-    position: initial;
     display: flex;
     flex-direction: row;
     line-height: 1;
