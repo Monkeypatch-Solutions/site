@@ -15,15 +15,9 @@
 html, body {
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
-  margin: 0;
-}
-
-main {
-  height: 100vh;
-  width: 100vw;
   overflow: hidden scroll;
   scroll-snap-type: y mandatory;
+  margin: 0;
 }
 
 section {
@@ -41,7 +35,7 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  right: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -80,8 +74,12 @@ header > button {
   z-index: 3;
 }
 
+h1 {
+  text-align: center;
+}
+
 h1 img {
-  width: 80vw;
+  width: 80%;
   max-width: 90rem;
   opacity: 1;
   transition: opacity 0.5s;
@@ -108,6 +106,14 @@ nav.hide {
 }
 
 #hero.scrolled {
+  opacity: 0;
+}
+
+#scroll-btn {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+#scroll-btn.scrolled {
   opacity: 0;
 }
 
