@@ -20,8 +20,6 @@ if (body) {
   const hero = document.getElementById('hero');
   const header = body.getElementsByTagName('header')[0];
   const sections = body.getElementsByTagName('section');
-  const nav = body.getElementsByTagName('nav')[0];
-  const navBtn = document.getElementById('nav-btn');
 
   const scrolledDownThePageThreshold = body.clientHeight - (body.clientHeight / 2);
 
@@ -33,29 +31,6 @@ if (body) {
       element.classList.remove('hide');
     }
   }
-
-  const shouldShowNav = () => {
-    if (body.scrollTop >= scrolledDownThePageThreshold) {
-      setHide(nav, false);
-    }
-  }
-
-  shouldShowNav();
-  if (window.innerWidth < 769) { // mobile
-    nav.style.top = `-${nav.clientHeight}px`;
-  } else { // desktop
-    nav.style.top = `${header.clientHeight}px`;
-  }
-  addEventListener("resize", () => {
-    shouldShowNav();
-    if (window.innerWidth < 769) { // mobile
-      if (nav.classList.contains('hide') || !navBtn.classList.contains('show')) {
-        nav.style.top = `-${nav.clientHeight}px`;
-      }
-    } else { // desktop
-      nav.style.top = `${header.clientHeight}px`;
-    }
-  });
 
   // If page loads on a section show header immediately
   if (body.scrollTop >= body.clientHeight) {
@@ -71,9 +46,9 @@ if (body) {
     }
   });
 
-  // Scroll #accessibility into view on `V` button click
+  // Scroll #about into view on `V` button click
   scrollBtn.addEventListener('click', () => {
-    document.getElementById('accessibility').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
   })
 
   body.addEventListener('scroll', () => {
@@ -84,7 +59,6 @@ if (body) {
         scrollBtn.classList.add('scrolled');
         header.classList.add('scrolled', 'transition');
         header.classList.remove('quick');
-        setHide(nav, false);
       }
     } else if (body.scrollTop < lastScrollTop) { // Scrolling up
       if (body.scrollTop <= scrolledDownThePageThreshold) {
@@ -92,7 +66,6 @@ if (body) {
         scrollBtn.classList.remove('scrolled');
         header.classList.remove('scrolled', 'transition');
         header.classList.add('quick');
-        setHide(nav, true);
       }
     }
 
@@ -121,31 +94,4 @@ if (body) {
     // Update last scroll position
     lastScrollTop = body.scrollTop <= 0 ? 0 : body.scrollTop;
   }, { passive: true });
-
-  // Toggle mobile nav
-  navBtn.addEventListener('click', () => {
-    const headerHeight = header.clientHeight;
-    const navHeight = nav.clientHeight;
-    if (navBtn.classList.contains('show')) {
-      navBtn.classList.remove('show');
-      nav.style.top = `-${navHeight}px`;
-      nav.hidden = true;
-    } else {
-      navBtn.classList.add('show');
-      nav.style.top = `${headerHeight}px`;
-      nav.hidden = false;
-    }
-  }, false);
-
-  // Add click events to nav bar buttons
-  [...body.getElementsByTagName('button')].forEach((button) => {
-    button.addEventListener('click', () => {
-      if (button.name) {
-        document.getElementById(button.name).scrollIntoView({ behavior: 'smooth' });
-        navBtn.classList.remove('show');
-        // nav.classList.remove('show');
-        setHide(nav, true);
-      }
-    });
-  });
 }
