@@ -19,6 +19,7 @@ if (body) {
   // Container elements
   const hero = document.getElementById('hero');
   const header = body.getElementsByTagName('header')[0];
+  const headerBtn = header.getElementsByTagName('button')[0];
   const sections = body.getElementsByTagName('section');
 
   const scrolledDownThePageThreshold = body.clientHeight - (body.clientHeight / 2);
@@ -94,4 +95,8 @@ if (body) {
     // Update last scroll position
     lastScrollTop = body.scrollTop <= 0 ? 0 : body.scrollTop;
   }, { passive: true });
+
+  headerBtn.addEventListener('click', () => {
+      document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+  });
 }
